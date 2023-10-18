@@ -1,0 +1,2 @@
+sinling~=0.3.6
+elasticsearch~=8.10.1
