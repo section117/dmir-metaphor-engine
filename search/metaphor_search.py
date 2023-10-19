@@ -37,10 +37,12 @@ def search_metaphors(search_term):
 
 def search_metaphors_with_stemming(search_term):
     stemmed_search_term = stem_sinhala_text(tokenize_text(search_term)[1])
-    print(stemmed_search_term)
     query = {
-        'match': {
-            'metaphor_line_stemmed': stemmed_search_term
+        'bool': {
+            'should': [
+                {'match': {'metaphor_line': {'query': search_term, 'boost': 2}}},
+                {'match': {'metaphor_line_stemmed': {'query': stemmed_search_term, 'boost': 1}}}
+            ]
         }
     }
     return search(query)
