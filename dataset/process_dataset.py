@@ -56,4 +56,3 @@ def main():
     print(bulk_insert_documents(metaphor_documents))
 
 
-main()

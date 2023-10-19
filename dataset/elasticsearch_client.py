@@ -40,7 +40,7 @@ def tokenize_text(text, analyzer='plain'):
 
     client = get_client()
     res = client.indices.analyze(index=c['index_name'], analyzer=analyzer, text=text)
-    return res['tokens']
+    return res['tokens'], ' '.join([t['token'] for t in res['tokens']])
 
 
 def bulk_insert_documents(docs):
@@ -54,3 +54,14 @@ def insert_document(doc):
     c = elasticsearch_config()
 
     return client.index(index=c['index_name'], document=doc)
+
+
+def search(query, size=100):
+    client = get_client()
+    c = elasticsearch_config()
+
+    res = client.search(index=c['index_name'], query=query, size=size)
+
+    if res['timed_out']:
+        raise RuntimeError('Search request timed out.')
+    return res['hits']
