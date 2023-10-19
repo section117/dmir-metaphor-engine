@@ -10,6 +10,7 @@ def get_search_results_table(rows):
 
     style = ttk.Style()
     style.configure("Treeview", font=('Iskoola Pota', 12))
+    style.configure('Treeview', rowheight=30)
 
     table.heading("#1", text="Poem Name")
     table.heading("#2", text="Poet")
@@ -24,6 +25,5 @@ def get_search_results_table(rows):
         table.insert('', 'end', values=row)
 
     table.pack()
-    # table.column('#3', width=50)
-    # table.column('#1', width=100)
+    # table.column('#3', width=70)
     return root

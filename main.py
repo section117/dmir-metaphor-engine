@@ -1,6 +1,7 @@
 from search import multi_search
 from ui import get_search_results_table
 
+
 def take_inputs():
     mode = int(input('Enter search mode: '))
     search_term = input('Enter search query: ')
@@ -34,6 +35,7 @@ def main():
     results = multi_search(search_term, mode)
 
     total_matches, table_rows = transform_results(results)
+    print('Total Matches -', total_matches)
     results_table = get_search_results_table(table_rows)
     results_table.mainloop()
 
