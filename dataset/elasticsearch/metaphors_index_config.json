@@ -44,7 +44,7 @@
 
           "source_domain": {
             "type": "text",
-            "index": false
+            "analyzer": "plain"
           },
           "source_domain_stemmed": {
             "type": "text",
@@ -52,7 +52,7 @@
           },
           "target_domain": {
             "type": "text",
-            "index": false
+            "analyzer": "plain"
           },
           "target_domain_stemmed": {
             "type": "text",

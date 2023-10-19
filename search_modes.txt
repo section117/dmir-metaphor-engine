@@ -1,0 +1,10 @@
+The following search modes are available.
+0 - Get all metaphors
+1 - Search metaphors by poem name
+2 - Search metaphors by poet
+3 - Search metaphors
+4 - Search metaphors with stemming
+5 - Search metaphors by source domain
+6 - Search metaphors by target domain
+
+Enter -1 to exit.

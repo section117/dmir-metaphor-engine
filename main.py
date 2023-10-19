@@ -31,13 +31,20 @@ def transform_results(results):
 
 
 def main():
-    mode, search_term = take_inputs()
-    results = multi_search(search_term, mode)
+    modes_text = open('search_modes.txt', 'r').read()
 
-    total_matches, table_rows = transform_results(results)
-    print('Total Matches -', total_matches)
-    results_table = get_search_results_table(table_rows)
-    results_table.mainloop()
+    while True:
+        print(modes_text)
+        mode, search_term = take_inputs()
+        if mode < 0:
+            break
+
+        results = multi_search(search_term, mode)
+
+        total_matches, table_rows = transform_results(results)
+        print('Total Matches -', total_matches)
+        results_table = get_search_results_table(table_rows)
+        results_table.mainloop()
 
 
 main()

@@ -46,6 +46,24 @@ def search_metaphors_with_stemming(search_term):
     return search(query)
 
 
+def search_by_source_domain(search_term):
+    query = {
+        'match': {
+            'source_domain': search_term
+        }
+    }
+    return search(query)
+
+
+def search_by_target_domain(search_term):
+    query = {
+        'match': {
+            'target_domain': search_term
+        }
+    }
+    return search(query)
+
+
 def multi_search(search_term: str, mode: int):
     if mode == 0:
         res = get_all()
@@ -57,6 +75,10 @@ def multi_search(search_term: str, mode: int):
         res = search_metaphors(search_term)
     elif mode == 4:
         res = search_metaphors_with_stemming(search_term)
+    elif mode == 5:
+        res = search_by_source_domain(search_term)
+    elif mode == 6:
+        res = search_by_target_domain(search_term)
     else:
         raise RuntimeError('Invalid search mode')
 
