@@ -1,16 +1,41 @@
-# This is a sample Python script.
+from search import multi_search
+from ui import get_search_results_table
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def take_inputs():
+    mode = int(input('Enter search mode: '))
+    search_term = input('Enter search query: ')
+
+    return mode, search_term
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def transform_results(results):
+    total_matches = results['total']['value']
+    documents = [i['_source'] for i in results['hits']]
+
+    table_rows = []
+    for doc in documents:
+        row = [
+            doc['poem_name'],
+            doc['poet'],
+            doc['published_year'],
+            doc['metaphor_line'],
+            doc['metaphor_terms'],
+            doc['source_domain'],
+            doc['target_domain'],
+            doc['interpretation'],
+        ]
+        table_rows.append(tuple(row))
+
+    return total_matches, table_rows
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def main():
+    mode, search_term = take_inputs()
+    results = multi_search(search_term, mode)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    total_matches, table_rows = transform_results(results)
+    results_table = get_search_results_table(table_rows)
+    results_table.mainloop()
+
+
+main()
