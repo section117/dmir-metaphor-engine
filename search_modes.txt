@@ -4,7 +4,7 @@ The following search modes are available.
 2 - Search metaphors by poet
 3 - Search metaphors
 4 - Search metaphors with stemming
-5 - Search metaphors by source domain
-6 - Search metaphors by target domain
+5 - Search metaphors by source domain (synonyms supported)
+6 - Search metaphors by target domain (synonyms supported)
 
 Enter -1 to exit.
