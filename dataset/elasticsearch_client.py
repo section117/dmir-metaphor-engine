@@ -7,7 +7,7 @@ def elasticsearch_config():
     return {
         'host': 'My_deployment:dXMtZWFzdC0yLmF3cy5lbGFzdGljLWNsb3VkLmNvbTo0NDMkMTdkYTc3OTZjNWVlNDNkMmExN2FiMGQ5ZTM4ZmM4ODIkZTFiMjhiNDQzMzA2NDE5M2E1NTQ2ZmUwOTUyMjAwODQ=',
         'username': 'elastic',
-        'password': 'iYwofiyHbj8BsYgEWHVmzVeg',
+        'password': '',
         'index_name': 'metaphors'
     }
 
