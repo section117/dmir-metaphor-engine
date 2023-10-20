@@ -27,7 +27,7 @@ def delete_metaphor_index():
 def create_metaphor_index():
     c = elasticsearch_config()
     index_name = c['index_name']
-    with open('elasticsearch/metaphors_index_config.json', 'r') as json_file:
+    with open('elasticsearch/metaphors_index_config.json', mode='r', encoding='utf_8') as json_file:
         config = json.load(json_file)
 
     client = get_client()

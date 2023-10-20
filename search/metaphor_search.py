@@ -51,7 +51,10 @@ def search_metaphors_with_stemming(search_term):
 def search_by_source_domain(search_term):
     query = {
         'match': {
-            'source_domain': search_term
+            'source_domain': {
+                'query': search_term,
+                'analyzer': 'plain_with_synonyms'
+            }
         }
     }
     return search(query)
@@ -60,7 +63,10 @@ def search_by_source_domain(search_term):
 def search_by_target_domain(search_term):
     query = {
         'match': {
-            'target_domain': search_term
+            'target_domain': {
+                'query': search_term,
+                'analyzer': 'plain_with_synonyms'
+            }
         }
     }
     return search(query)
